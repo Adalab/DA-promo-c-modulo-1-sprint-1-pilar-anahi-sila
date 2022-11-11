@@ -43,7 +43,7 @@ desde la dirección nos piden conocer los 3 pedidos que han supuesto un mayor
 coste económico total para la empresa.
 Calcúlalo y dale el alias ImporteTotal. Nota: Utiliza unit_price.*/
 
-SELECT order_id, unit_price AS importe_total
+SELECT order_id, (unit_price * quantity) AS importe_total
 FROM order_details
 ORDER BY unit_price DESC
 LIMIT 3;
@@ -53,16 +53,20 @@ LIMIT 3;
 nos piden seleccionar el ID de los pedidos situados entre la 5 y la 10
 mejor posición en cuanto al coste económico total ImporteTotal.*/
 
-SELECT order_id, unit_price AS importe_total
+SELECT DISTINCT order_id, unit_price AS importe_total
 FROM order_details
 ORDER BY unit_price DESC
-WHERE unit_price BETWEEN 
+LIMIT 10
+OFFSET 4;
 
 
 /* 7.- Qué categorías tenemos en nuestra BBDD:
 De cara a ver cómo de diversificado está el negocio, se nos solicita una
 lista de las categorías que componen los tipos de pedido de la empresa.
 Queremos que la lista de resultado sea renombrada como "NombreDeCategoria".*/
+
+SELECT category_name AS NombreDeCategoria
+FROM categories;
 
 /* 8.- Selecciona envios con retraso:
 Nos hacen llegar desde la dirección la preocupación acerca del cumplimiento
@@ -73,6 +77,12 @@ conocer cuál sería la fecha de envío (ShippedDate) de los pedidos almacenados
 de datos, si estos sufrieran un retraso de 5 días. Nos piden mostrar la nueva fecha renombrada
 como FechaRetrasada.
 💡 Pista 💡 Para realizar lo anterior, busca documentación de la función DATE_ADD para MySQL.*/
+
+SELECT order_id, DATEDIFF(shipped_date, order_date), (DATEDIFF(shipped_date, order_date) - 5) AS FechaRetrasada
+FROM orders;
+
+
+
 
 /* 9.- Selecciona los productos más rentables:
 Gracias a un análisis realizado en los últimos meses en la empresa, se ha comprobado que el
