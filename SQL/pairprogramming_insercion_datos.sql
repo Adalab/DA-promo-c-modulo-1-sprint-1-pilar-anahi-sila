@@ -1,4 +1,8 @@
+									/* INSERCION DE DATOS */
+
 USE tienda_zapatillas;
+
+/* Insertamos datos en las diferentes tablas.*/
 
 INSERT INTO zapatillas (id_zapatillas, modelo, color, marca, talla)
 VALUES (1,'XQYUN', 'Negro','Nike', 42);
@@ -19,17 +23,32 @@ VALUES (1, '123', '2001-12-11',1,2,1,54.98),
 (2,'1234','2005-05-23',1,1,3,89.91), 
 (3, '12345','2015-09-18',2,3,3,76.23);
 
+/*Tabla zapatillas:
+En nuestra tienda no vendemos zapatillas Rosas. En realidad esas zapatillas son amarillas.*/
+
 UPDATE zapatillas
 SET color = 'Amarillo'
 WHERE id_zapatillas = 2;
+
+
+/* Tabla empleados:
+Laura se ha cambiado de ciudad y ya no vive en Alcobendas, ahora vive en A Coruña.*/
 
 UPDATE empleados
 SET tienda = 'A Coruña'
 WHERE id_empleados = 1;
 
+
+/*Tabla clientes:
+El Numero de telefono de Monica esta mal. En realidad su número es: 123456728*/
+
 UPDATE clientes
 SET numero_telefono = 123456728
 WHERE id_clientes = 1;
+
+
+/* Tabla facturas:
+El total de la factura de la zapatilla cuyo id es 2 es incorrecto. En realidad es: 89,91.*/
 
 UPDATE facturas
 SET total_factura = 89.91

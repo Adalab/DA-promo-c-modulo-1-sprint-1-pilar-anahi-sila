@@ -1,14 +1,16 @@
+								/* CONSULTAS BASICAS 2 */
+
+USE northwind;
 
 /* 1.- Conociendo el tipo de productos que vendemos en Northwind:
 Crea una consulta que muestre los primeros 10 productos según su ID y 
 que nos indique el nombre de dichos productos y sus precios.*/
 
-USE northwind;
-
 SELECT product_id, unit_price
 FROM products
 ORDER BY product_id
 LIMIT 10;
+
 
 /* 2.- Ordenando los resultados:
 Ahora realiza la misma consulta pero que nos muestre los últimos 10 productos según su ID 
@@ -19,6 +21,7 @@ FROM products
 ORDER BY product_id DESC
 LIMIT 10;
 
+
 /* 3.- Que pedidos tenemos en nuestra BBDD:
 Últimamente ha habido algo de descontrol en la empresa a la hora de controlar los pedidos.
 Nos interesa conocer qué pedidos distintos hemos tenido (eliminando entradas duplicadas según
@@ -26,6 +29,7 @@ su ID en la tabla order_details).*/
 
 SELECT DISTINCT order_id
 FROM order_details;
+
 
 /* 4.- Los dos primeros pedidos:
 Como el número de pedidos es demasiado alto para visualizarlo de manera práctica
@@ -36,6 +40,7 @@ registros para cada pedido, por lo que no nos servirá con un uso normal del com
 SELECT distinct order_id, product_id
 FROM order_details
 where order_id between 10248 and 10249;
+
 
 /*5.- Qué pedidos han gastado más:
 Una vez hemos inspeccionado el tipo de pedidos que tenemos en la empresa,
@@ -82,13 +87,13 @@ SELECT order_id, DATEDIFF(shipped_date, order_date), (DATEDIFF(shipped_date, ord
 FROM orders;
 
 
-
-
 /* 9.- Selecciona los productos más rentables:
 Gracias a un análisis realizado en los últimos meses en la empresa, se ha comprobado que el
 rango de productos que puede dar más beneficios parece ser el de aquellos con un precio mayor
 o igual a 15 dólares, pero menor o igual que 50 dólares. Selecciona los datos de ese rango de
 productos usando el operador BETWEEN. */
+
+
 
 /* 10.- Selecciona los productos con unos precios dados:
 Queremos conocer los datos de los productos que tengan exactamente

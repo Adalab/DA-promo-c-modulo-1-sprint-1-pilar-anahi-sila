@@ -1,3 +1,5 @@
+							/*CONSULTAS AVANZADAS 1 */
+
 USE northwind;
 
 /* 1. Productos más baratos y caros de nuestra BBDD:
@@ -24,6 +26,7 @@ SELECT MAX(freight), MIN(freight)
 FROM orders
 WHERE ship_country = "UK";
 
+
 /* 4. Qué productos se venden por encima del precio medio:
 Después de analizar los resultados de alguna de nuestras consultas anteriores, 
 desde el departamento de Ventas quieren conocer qué productos en concreto se 
@@ -40,6 +43,7 @@ FROM products
 WHERE unit_price >= 28.86
 ORDER BY unit_price DESC;
 
+
 /* 5. Qué productos se han descontinuado:
 De cara a estudiar el histórico de la empresa nos piden una consulta para conocer 
 el número de productos que se han descontinuado. 
@@ -48,6 +52,7 @@ El atributo Discontinued es un booleano: si es igual a 1 el producto ha sido des
 SELECT product_name
 FROM products
 WHERE discontinued = 1;
+
 
 /* 6. Detalles de los productos de la query anterior:
 Adicionalmente nos piden detalles de aquellos productos no descontinuados, 
