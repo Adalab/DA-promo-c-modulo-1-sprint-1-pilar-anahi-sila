@@ -83,7 +83,8 @@ de datos, si estos sufrieran un retraso de 5 días. Nos piden mostrar la nueva f
 como FechaRetrasada.
 💡 Pista 💡 Para realizar lo anterior, busca documentación de la función DATE_ADD para MySQL.*/
 
-SELECT order_id, DATEDIFF(shipped_date, order_date), (DATEDIFF(shipped_date, order_date) - 5) AS FechaRetrasada
+
+SELECT order_id, shipped_date, DATE_ADD(shipped_date,INTERVAL -5 DAY ) AS FechaRetrasada
 FROM orders;
 
 
