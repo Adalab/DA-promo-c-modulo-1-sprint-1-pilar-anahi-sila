@@ -93,9 +93,16 @@ rango de productos que puede dar más beneficios parece ser el de aquellos con u
 o igual a 15 dólares, pero menor o igual que 50 dólares. Selecciona los datos de ese rango de
 productos usando el operador BETWEEN. */
 
+SELECT unit_price, product_id, product_name
+FROM products
+WHERE unit_price BETWEEN 15 AND 50;
 
 
 /* 10.- Selecciona los productos con unos precios dados:
 Queremos conocer los datos de los productos que tengan exactamente
 un precio de 18, 19 o 20 dólares (un rango muy concreto de precios del que la
-empresa quiere maximizar sus ventas en un futuro). Usa IN para conseguirlo de manera eficiente.
+empresa quiere maximizar sus ventas en un futuro). Usa IN para conseguirlo de manera eficiente.*/
+
+SELECT *
+FROM products
+WHERE unit_price IN (18, 19, 20);
